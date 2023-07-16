@@ -10,6 +10,8 @@ Countries.forEach((country) => {
 
 type CountriesType = typeof Countries;
 
+export type CountryItemType = CountriesType[number];
+
 type StateType = {
   searchQuery: string;
   regionQuery: string;
