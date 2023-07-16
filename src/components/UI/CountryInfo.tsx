@@ -9,6 +9,27 @@ type Props = {
 export default function CountryInfo({ country, onBorderCountryClick }: Props) {
   const countryFlagImage = country?.flags?.svg || country?.flag || '';
 
+  let borderContent;
+
+  if (country?.borders && country?.borders?.length > 0) {
+    borderContent = (
+      <div className="flex flex-col items-start gap-6 lg:flex-row lg:flex-wrap lg:items-center">
+        <span className="flex-shrink-0 text-sm font-semibold text-light-mode-text dark:text-dark-mode-text">
+          Border Countries:
+        </span>
+        <div className="flex flex-wrap items-center justify-start gap-6">
+          {country.borders.map((country) => (
+            <BorderCountryCard
+              key={country}
+              country={country}
+              onClick={onBorderCountryClick}
+            />
+          ))}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-24">
       <div className="overflow-hidden shadow-sm">
@@ -104,21 +125,7 @@ export default function CountryInfo({ country, onBorderCountryClick }: Props) {
           </div>
         </div>
 
-        <div className="flex flex-col items-start gap-6 lg:flex-row lg:flex-wrap lg:items-center">
-          <span className="flex-shrink-0 text-sm font-semibold text-light-mode-text dark:text-dark-mode-text">
-            Border Countries:
-          </span>
-          <div className="flex flex-wrap items-center justify-start gap-6">
-            {country.borders &&
-              country.borders.map((country) => (
-                <BorderCountryCard
-                  key={country}
-                  country={country}
-                  onClick={onBorderCountryClick}
-                />
-              ))}
-          </div>
-        </div>
+        {borderContent}
       </article>
     </div>
   );
