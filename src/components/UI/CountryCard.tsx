@@ -22,7 +22,7 @@ export default function CountryCard({ country, onCountrySelect }: Props) {
         />
       </div>
       <article className="flex flex-1 flex-col gap-6 px-4 pb-8 pt-6">
-        <h3 className="text-base font-extrabold text-light-mode-text dark:text-dark-mode-text">
+        <h3 className="text-left text-base font-extrabold text-light-mode-text dark:text-dark-mode-text">
           {country.name}
         </h3>
         <ul className="flex flex-col gap-1">
