@@ -38,7 +38,7 @@ export default function SingleSelect({
         <span>{btnText}</span>
         <ChevronUpIcon
           className={`h-4 w-4 flex-shrink-0 transform transition-all duration-300 dark:stroke-dark-mode-text ${
-            open ? 'rotate-180' : 'rotate-0'
+            open ? 'rotate-0' : 'rotate-180'
           }`}
         />
       </div>

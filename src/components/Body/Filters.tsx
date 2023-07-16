@@ -12,6 +12,10 @@ export default function Filters() {
   } = useContext(CountryContext);
 
   const onOptionChange = (region: string) => {
+    if (region === regionQuery) {
+      onRegionChange('');
+      return;
+    }
     onRegionChange(region);
   };
 
