@@ -104,7 +104,7 @@ export default function CountryInfo({ country, onBorderCountryClick }: Props) {
           </div>
         </div>
 
-        <div className="flex flex-col items-start gap-6 lg:flex-row lg:items-start">
+        <div className="flex flex-col items-start gap-6 lg:flex-row lg:flex-wrap lg:items-center">
           <span className="flex-shrink-0 text-sm font-semibold text-light-mode-text dark:text-dark-mode-text">
             Border Countries:
           </span>
