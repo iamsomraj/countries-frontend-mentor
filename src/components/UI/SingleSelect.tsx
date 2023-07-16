@@ -9,7 +9,7 @@ type Props = {
 export default function SingleSelect({ value, onChange, options }: Props) {
   return (
     <select
-      className="flex w-full appearance-none items-center justify-start gap-4 rounded bg-dark-mode-text px-6 py-3 text-light-mode-text drop-shadow-md  focus:outline-none dark:bg-dark-mode-elements dark:text-dark-mode-text lg:w-1/4 lg:px-8 lg:py-4"
+      className="flex w-full appearance-none items-center justify-start gap-4 rounded bg-dark-mode-text px-6 py-4 text-light-mode-text drop-shadow-md  focus:outline-none dark:bg-dark-mode-elements dark:text-dark-mode-text lg:w-1/4 lg:px-8 lg:py-4"
       value={value}
       onChange={onChange}
     >
