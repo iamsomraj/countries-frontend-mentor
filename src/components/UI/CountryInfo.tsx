@@ -11,7 +11,7 @@ export default function CountryInfo({ country, onBorderCountryClick }: Props) {
 
   let borderContent;
 
-  if (country?.borders && country?.borders?.length > 0) {
+  if (country?.borders && country.borders?.length > 0) {
     borderContent = (
       <div className="flex flex-col items-start gap-6 lg:flex-row lg:flex-wrap lg:items-center">
         <span className="flex-shrink-0 text-sm font-semibold text-light-mode-text dark:text-dark-mode-text">
