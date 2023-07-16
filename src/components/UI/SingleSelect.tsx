@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { ChevronUpIcon } from '@heroicons/react/24/outline';
 import { MouseEvent, useState } from 'react';
 
@@ -17,7 +19,7 @@ export default function SingleSelect({
   const [open, setOpen] = useState<boolean>(false);
   const btnText = value?.trim().length > 0 ? value.trim() : placeholder;
 
-  const onDropdownToggle = (event: MouseEvent<HTMLButtonElement>) => {
+  const onDropdownToggle = (event: MouseEvent<HTMLDivElement>) => {
     event.stopPropagation();
     setOpen((prevOpen) => !prevOpen);
   };
@@ -29,9 +31,8 @@ export default function SingleSelect({
   };
 
   return (
-    <button
+    <div
       className="relative z-10 w-full rounded bg-dark-mode-text px-6 py-4 text-left text-light-mode-text drop-shadow-md transition-all duration-300 focus:outline-none dark:bg-dark-mode-elements dark:text-dark-mode-text lg:w-1/4 lg:px-8 lg:py-4"
-      value={value}
       onClick={onDropdownToggle}
     >
       <div className="flex items-center justify-between">
@@ -43,7 +44,7 @@ export default function SingleSelect({
         />
       </div>
       {open && (
-        <button
+        <div
           onClick={(e) => e.stopPropagation()}
           className={
             'absolute left-0 top-[125%] flex w-full flex-col gap-2 rounded bg-dark-mode-text py-4 transition-all duration-300 dark:bg-dark-mode-elements'
@@ -59,8 +60,8 @@ export default function SingleSelect({
               {option}
             </button>
           ))}
-        </button>
+        </div>
       )}
-    </button>
+    </div>
   );
 }
