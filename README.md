@@ -25,6 +25,28 @@ The project uses the following technologies:
 - Typescript
 - Tailwind
 
+## Screenshots
+
+<img src="./screenshots/desktop-light-home.png" alt="Desktop Preview">
+<br />
+<img src="./screenshots/desktop-dark-home.png" alt="Desktop Preview">
+<p><em>Desktop Home Page Preview</em></p>
+
+<img src="./screenshots/mobile-light-home.png" alt="Mobile Preview">
+<br />
+<img src="./screenshots/mobile-dark-home.png" alt="Mobile Preview">
+<p><em>Mobile Home Page Preview</em></p>
+
+<img src="./screenshots/desktop-light-detail.png" alt="Desktop Preview">
+<br />
+<img src="./screenshots/desktop-dark-detail.png" alt="Desktop Preview">
+<p><em>Desktop Detail Page Preview</em></p>
+
+<img src="./screenshots/mobile-light-detail.png" alt="Mobile Preview">
+<br />
+<img src="./screenshots/mobile-dark-detail.png" alt="Mobile Preview">
+<p><em>Mobile Detail Page Preview</em></p>
+
 ## Resources
 
 - [Frontend Mentor](https://www.frontendmentor.io/)
