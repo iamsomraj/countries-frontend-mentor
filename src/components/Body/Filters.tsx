@@ -10,6 +10,11 @@ export default function Filters() {
     onSearchQueryChange,
     onRegionChange,
   } = useContext(CountryContext);
+
+  const onOptionChange = (region: string) => {
+    onRegionChange(region);
+  };
+
   return (
     <div className="flex flex-col items-center justify-between gap-y-8 lg:flex-row">
       <SearchInput
@@ -17,7 +22,12 @@ export default function Filters() {
         onChange={onSearchQueryChange}
         placeholder="Search for a country..."
       />
-      <SingleSelect options={regions} value={regionQuery} onChange={onRegionChange} />
+      <SingleSelect
+        placeholder="Filter by Region"
+        options={regions}
+        value={regionQuery}
+        onOptionChange={onOptionChange}
+      />
     </div>
   );
 }

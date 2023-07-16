@@ -27,7 +27,6 @@ The project uses the following technologies:
 
 ## Resources
 
-- [REST Countries API Documentation](https://restcountries.com/)
 - [Frontend Mentor](https://www.frontendmentor.io/)
 
 ## License

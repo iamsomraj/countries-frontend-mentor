@@ -89,10 +89,10 @@ const useCountryContext = () => {
     });
   };
 
-  const onRegionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const onRegionChange = (region: string) => {
     dispatch({
       type: ActionType.HANDLE_REGION_QUERY_ACTION,
-      payload: event.target.value,
+      payload: region,
     });
   };
 
@@ -113,7 +113,7 @@ const initialContextState: UseCountryContextType = {
   // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
   onSearchQueryChange: (event: React.ChangeEvent<HTMLInputElement>) => {},
   // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
-  onRegionChange: (event: React.ChangeEvent<HTMLSelectElement>) => {},
+  onRegionChange: (region: string) => {},
   // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
   selectCountry: ({ country }: { country: CountryItemType | null }) => {},
 };

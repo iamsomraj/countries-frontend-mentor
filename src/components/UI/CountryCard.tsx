@@ -17,7 +17,6 @@ export default function CountryCard({ country, onCountrySelect }: Props) {
         <img
           src={countryFlagImage}
           alt={country.name}
-          loading="lazy"
           className="aspect-video overflow-hidden object-cover text-sm text-light-mode-text transition-all duration-300 group-hover:scale-110 dark:text-dark-mode-text"
         />
       </div>
