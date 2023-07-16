@@ -13,11 +13,11 @@ export default function CountryCard({ country, onCountrySelect }: Props) {
       onClick={() => onCountrySelect(country)}
       className="group flex flex-col rounded bg-dark-mode-text outline-none drop-shadow-md dark:bg-dark-mode-elements"
     >
-      <div className="overflow-hidden shadow-sm">
+      <div className="h-full w-full overflow-hidden shadow-sm">
         <img
           src={countryFlagImage}
           alt={country.name}
-          className="aspect-video overflow-hidden object-cover text-sm text-light-mode-text transition-all duration-300 group-hover:scale-110 dark:text-dark-mode-text"
+          className="aspect-video overflow-hidden object-cover object-center text-sm text-light-mode-text transition-all duration-300 group-hover:scale-110 dark:text-dark-mode-text"
         />
       </div>
       <article className="flex flex-1 flex-col gap-6 px-4 pb-8 pt-6">
