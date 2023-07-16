@@ -32,7 +32,7 @@ export default function SingleSelect({
 
   return (
     <div
-      className="relative z-10 w-full rounded bg-dark-mode-text px-6 py-4 text-left text-light-mode-text drop-shadow-md transition-all duration-300 focus:outline-none dark:bg-dark-mode-elements dark:text-dark-mode-text lg:w-1/4 lg:px-8 lg:py-4"
+      className="relative z-10 w-full cursor-pointer rounded bg-dark-mode-text px-6 py-4 text-left text-light-mode-text drop-shadow-md transition-all duration-300 focus:outline-none dark:bg-dark-mode-elements dark:text-dark-mode-text lg:w-1/4 lg:px-8 lg:py-4"
       onClick={onDropdownToggle}
     >
       <div className="flex items-center justify-between">

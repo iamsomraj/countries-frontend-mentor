@@ -9,9 +9,10 @@ export default function CountryCard({ country, onCountrySelect }: Props) {
   const countryFlagImage = country?.flags?.svg || country?.flag || '';
 
   return (
-    <button
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+    <div
       onClick={() => onCountrySelect(country)}
-      className="group flex flex-col rounded bg-dark-mode-text outline-none drop-shadow-md dark:bg-dark-mode-elements"
+      className="group flex cursor-pointer flex-col rounded bg-dark-mode-text outline-none drop-shadow-md dark:bg-dark-mode-elements"
     >
       <div className="h-full w-full overflow-hidden shadow-sm">
         <img
@@ -53,6 +54,6 @@ export default function CountryCard({ country, onCountrySelect }: Props) {
           )}
         </ul>
       </article>
-    </button>
+    </div>
   );
 }
