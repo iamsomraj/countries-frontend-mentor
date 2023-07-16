@@ -2,12 +2,17 @@ import { CountryItemType } from '../../context/CountryContext';
 
 type Props = {
   country: CountryItemType;
+  onCountrySelect: (country: CountryItemType) => void;
 };
 
-export default function CountryCard({ country }: Props) {
+export default function CountryCard({ country, onCountrySelect }: Props) {
   const countryFlagImage = country?.flags?.svg || country?.flag || '';
+
   return (
-    <article className="group flex flex-col rounded bg-dark-mode-text drop-shadow-md dark:bg-dark-mode-elements">
+    <button
+      onClick={() => onCountrySelect(country)}
+      className="group flex flex-col rounded bg-dark-mode-text outline-none drop-shadow-md dark:bg-dark-mode-elements"
+    >
       <div className="overflow-hidden shadow-sm">
         <img
           src={countryFlagImage}
@@ -16,7 +21,7 @@ export default function CountryCard({ country }: Props) {
           className="aspect-video overflow-hidden object-cover text-sm text-light-mode-text transition-all duration-300 group-hover:scale-110 dark:text-dark-mode-text"
         />
       </div>
-      <div className="flex flex-1 flex-col gap-6 px-4 pb-8 pt-6">
+      <article className="flex flex-1 flex-col gap-6 px-4 pb-8 pt-6">
         <h3 className="text-base font-extrabold text-light-mode-text dark:text-dark-mode-text">
           {country.name}
         </h3>
@@ -48,7 +53,7 @@ export default function CountryCard({ country }: Props) {
             </li>
           )}
         </ul>
-      </div>
-    </article>
+      </article>
+    </button>
   );
 }

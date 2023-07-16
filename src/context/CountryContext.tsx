@@ -8,15 +8,16 @@ Countries.forEach((country) => {
   regions.add(country.region);
 });
 
-type CountriesType = typeof Countries;
+type CountryListType = typeof Countries;
 
-export type CountryItemType = CountriesType[number];
+export type CountryItemType = CountryListType[number];
 
 type StateType = {
   searchQuery: string;
   regionQuery: string;
-  countries: CountriesType;
+  countries: CountryListType;
   regions: string[];
+  detailCountry: null | CountryItemType;
 };
 
 const initState: StateType = {
@@ -24,11 +25,13 @@ const initState: StateType = {
   searchQuery: '',
   regionQuery: '',
   regions: new Array(...regions),
+  detailCountry: null,
 };
 
 enum ActionType {
   HANDLE_SEARCH_QUERY_ACTION,
   HANDLE_REGION_QUERY_ACTION,
+  SELECT_COUNTRY_ACTION,
 }
 
 type HandleSearchQueryAction = {
@@ -41,7 +44,12 @@ type HandleRegionQueryAction = {
   payload: string;
 };
 
-type Action = HandleSearchQueryAction | HandleRegionQueryAction;
+type SelectCountryAction = {
+  type: ActionType.SELECT_COUNTRY_ACTION;
+  payload: CountryItemType | null;
+};
+
+type Action = HandleSearchQueryAction | HandleRegionQueryAction | SelectCountryAction;
 
 const reducer = (state: StateType, action: Action): StateType => {
   switch (action.type) {
@@ -55,6 +63,12 @@ const reducer = (state: StateType, action: Action): StateType => {
       return {
         ...state,
         regionQuery: action.payload,
+      };
+    }
+    case ActionType.SELECT_COUNTRY_ACTION: {
+      return {
+        ...state,
+        detailCountry: action.payload,
       };
     }
     default: {
@@ -80,7 +94,14 @@ const useCountryContext = () => {
     });
   };
 
-  return { state, onSearchQueryChange, onRegionChange };
+  const selectCountry = ({ country }: { country: CountryItemType | null }) => {
+    dispatch({
+      type: ActionType.SELECT_COUNTRY_ACTION,
+      payload: country,
+    });
+  };
+
+  return { state, onSearchQueryChange, onRegionChange, selectCountry };
 };
 
 type UseCountryContextType = ReturnType<typeof useCountryContext>;
@@ -91,6 +112,8 @@ const initialContextState: UseCountryContextType = {
   onSearchQueryChange: (event: React.ChangeEvent<HTMLInputElement>) => {},
   // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
   onRegionChange: (event: React.ChangeEvent<HTMLSelectElement>) => {},
+  // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
+  selectCountry: ({ country }: { country: CountryItemType | null }) => {},
 };
 
 export const CountryContext = createContext<UseCountryContextType>(initialContextState);

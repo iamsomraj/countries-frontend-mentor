@@ -1,11 +1,12 @@
 import { useContext } from 'react';
 
-import { CountryContext } from '../../context/CountryContext';
+import { CountryContext, CountryItemType } from '../../context/CountryContext';
 import CountryCard from '../UI/CountryCard';
 
 const CountryList = () => {
   const {
     state: { countries, searchQuery, regionQuery },
+    selectCountry,
   } = useContext(CountryContext);
 
   let filteredCountries = countries;
@@ -22,10 +23,18 @@ const CountryList = () => {
     );
   }
 
+  const onCountrySelect = (country: CountryItemType) => {
+    selectCountry({ country });
+  };
+
   return (
     <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
       {filteredCountries.map((country, index) => (
-        <CountryCard key={country.alpha2Code + index} country={country} />
+        <CountryCard
+          onCountrySelect={onCountrySelect}
+          key={country.alpha2Code + index}
+          country={country}
+        />
       ))}
     </div>
   );
