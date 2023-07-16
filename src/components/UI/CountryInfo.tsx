@@ -41,9 +41,9 @@ export default function CountryInfo({ country, onBorderCountryClick }: Props) {
       </div>
       <article className="flex flex-col gap-12 px-4 pb-8 pt-6">
         <div className="flex flex-col gap-6">
-          <h3 className="text-2xl font-extrabold text-light-mode-text transition-all duration-300 dark:text-dark-mode-text">
+          <h2 className="text-2xl font-extrabold text-light-mode-text transition-all duration-300 dark:text-dark-mode-text">
             {country.name}
-          </h3>
+          </h2>
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
             <ul className="flex flex-col gap-3">
               <li className="flex gap-2">
