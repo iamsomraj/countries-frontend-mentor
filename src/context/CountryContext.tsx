@@ -4,6 +4,8 @@ import Countries from '../data/data.json';
 
 const regions = new Set<string>();
 
+export const countryList = Countries;
+
 Countries.forEach((country) => {
   regions.add(country.region);
 });

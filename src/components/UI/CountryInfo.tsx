@@ -1,10 +1,12 @@
 import { CountryItemType } from '../../context/CountryContext';
+import BorderCountryCard from './BorderCountryCard';
 
 type Props = {
   country: CountryItemType;
+  onBorderCountryClick: (country: CountryItemType) => void;
 };
 
-export default function CountryInfo({ country }: Props) {
+export default function CountryInfo({ country, onBorderCountryClick }: Props) {
   const countryFlagImage = country?.flags?.svg || country?.flag || '';
 
   return (
@@ -102,19 +104,18 @@ export default function CountryInfo({ country }: Props) {
           </div>
         </div>
 
-        <div className="flex flex-col items-start gap-6 lg:flex-row lg:items-center">
-          <span className="text-sm font-semibold text-light-mode-text dark:text-dark-mode-text">
+        <div className="flex flex-col items-start gap-6 lg:flex-row lg:items-start">
+          <span className="flex-shrink-0 text-sm font-semibold text-light-mode-text dark:text-dark-mode-text">
             Border Countries:
           </span>
           <div className="flex flex-wrap items-center justify-start gap-6">
             {country.borders &&
               country.borders.map((country) => (
-                <button
+                <BorderCountryCard
                   key={country}
-                  className="rounded border border-light-mode-text/10 bg-dark-mode-text px-8 py-2 text-xs text-light-mode-text outline-none drop-shadow transition-all duration-300 dark:border-none dark:bg-dark-mode-elements dark:text-dark-mode-text"
-                >
-                  {country}
-                </button>
+                  country={country}
+                  onClick={onBorderCountryClick}
+                />
               ))}
           </div>
         </div>
