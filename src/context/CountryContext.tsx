@@ -2,18 +2,26 @@ import { createContext, ReactElement, useReducer } from 'react';
 
 import Countries from '../data/data.json';
 
+const regions = new Set<string>();
+
+Countries.forEach((country) => {
+  regions.add(country.region);
+});
+
 type CountriesType = typeof Countries;
 
 type StateType = {
   searchQuery: string;
   regionQuery: string;
   countries: CountriesType;
+  regions: string[];
 };
 
 const initState: StateType = {
-  countries: [],
+  countries: Countries,
   searchQuery: '',
   regionQuery: '',
+  regions: new Array(...regions),
 };
 
 enum ActionType {
