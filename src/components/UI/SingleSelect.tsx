@@ -3,6 +3,8 @@
 import { ChevronUpIcon } from '@heroicons/react/24/outline';
 import { MouseEvent, useState } from 'react';
 
+import styles from './SingleSelect.module.css';
+
 type Props = {
   placeholder: string;
   value: string;
@@ -46,9 +48,7 @@ export default function SingleSelect({
       {open && (
         <div
           onClick={(e) => e.stopPropagation()}
-          className={
-            'absolute left-0 top-[125%] flex w-full flex-col gap-2 rounded bg-dark-mode-text py-4 transition-all duration-300 dark:bg-dark-mode-elements'
-          }
+          className={`absolute left-0 top-[125%] flex max-h-40 w-full flex-col gap-2 overflow-y-auto rounded bg-dark-mode-text py-4 drop-shadow-2xl transition-all duration-300 dark:bg-dark-mode-elements ${styles.no_scrollbar}`}
         >
           {options.map((option, index) => (
             <button
